@@ -41,7 +41,7 @@ export function MobileNav() {
     <>
       <button
         type="button"
-        className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg text-zinc-700 transition-colors hover:bg-zinc-100 hover:text-zinc-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 md:hidden"
+        className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-transparent text-zinc-700 transition-colors hover:border-zinc-200 hover:bg-zinc-100 hover:text-zinc-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 md:hidden"
         aria-expanded={open}
         aria-controls="mobile-nav-panel"
         aria-label={open ? "Close menu" : "Open menu"}
