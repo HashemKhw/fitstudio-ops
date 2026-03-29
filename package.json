@@ -1,0 +1,12 @@
+{
+  "name": "fitstudio-ops",
+  "private": true,
+  "scripts": {
+    "install:all": "npm install --prefix frontend && npm install --prefix backend",
+    "dev:frontend": "npm run dev --prefix frontend",
+    "dev:backend": "npm run dev --prefix backend",
+    "build": "npm run build --prefix frontend && npm run build --prefix backend",
+    "start:frontend": "npm run start --prefix frontend",
+    "start:backend": "npm run start --prefix backend"
+  }
+}
