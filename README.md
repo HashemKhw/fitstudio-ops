@@ -97,6 +97,47 @@ TRY/
 
 ---
 
+## Deploy the Next.js app to Cloudflare Workers
+
+This repo uses the official [**OpenNext Cloudflare adapter**](https://opennext.js.org/cloudflare) (`@opennextjs/cloudflare`). The **frontend** is what you deploy; the Express API stays on Render/Railway (or another host) unless you migrate it separately.
+
+### Workers Builds (Git connected)
+
+In the Cloudflare dashboard: **Workers & Pages** → your Worker → **Settings** → **Build**:
+
+| Setting | Value |
+|--------|--------|
+| **Root directory** | `frontend` |
+| **Build command** | `npm install && npm run cf-build` |
+| **Deploy command** | `npx wrangler deploy` (default is fine) |
+
+Use **npm** for installs if the UI lets you choose a package manager. If Cloudflare defaults to **Bun** at the monorepo root, either set **root directory** to `frontend` (so dependencies install correctly) or use the root build: `npm install && npm run build` from the repo root (that runs `cf-build` in `frontend`).
+
+### Build variables (recommended)
+
+Add the same values you use locally so Next can inline public env vars during the build:
+
+- `BACKEND_API_URL` — optional; your API URL for form proxying.
+- `NEXT_PUBLIC_GA_MEASUREMENT_ID` — optional.
+
+For runtime-only secrets, use **Workers** → **Settings** → **Variables**.
+
+### Local Cloudflare preview
+
+```bash
+cd frontend && npm run preview
+```
+
+### One-command deploy from your machine
+
+```bash
+cd frontend && npm run deploy
+```
+
+(requires Wrangler logged in: `npx wrangler login`)
+
+---
+
 ## Environment variables
 
 **Frontend** (`frontend/.env.example`)
