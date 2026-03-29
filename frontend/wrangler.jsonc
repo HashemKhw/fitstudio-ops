@@ -3,7 +3,7 @@
 	// in Cloudflare Dashboard → Workers → this worker → Settings → Variables and secrets.
 	"$schema": "node_modules/wrangler/config-schema.json",
 	"main": ".open-next/worker.js",
-	"name": "fitstudio",
+	"name": "fitstudio-opss",
 	"compatibility_date": "2026-03-29",
 	"compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
 	"assets": {
@@ -13,7 +13,7 @@
 	"services": [
 		{
 			"binding": "WORKER_SELF_REFERENCE",
-			"service": "fitstudio"
+			"service": "fitstudio-opss"
 		}
 	]
 }
