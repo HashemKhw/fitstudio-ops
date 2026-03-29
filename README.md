@@ -105,13 +105,25 @@ This repo uses the official [**OpenNext Cloudflare adapter**](https://opennext.j
 
 In the Cloudflare dashboard: **Workers & Pages** → your Worker → **Settings** → **Build**:
 
+**Option A — Build from monorepo root** (what you use if **Root directory** is empty):
+
+| Setting | Value |
+|--------|--------|
+| **Root directory** | *(leave empty)* |
+| **Build command** | `npm run build` |
+| **Deploy command** | `npm run cloudflare-deploy` |
+
+`npm run cloudflare-deploy` runs Wrangler with `--config frontend/wrangler.jsonc` so paths like `.open-next/worker.js` resolve correctly. The default `npx wrangler deploy` from the repo root (with no config) fails because `wrangler.jsonc` lives under `frontend/`.
+
+**Option B — Build only the Next app** (often simpler):
+
 | Setting | Value |
 |--------|--------|
 | **Root directory** | `frontend` |
 | **Build command** | `npm install && npm run cf-build` |
-| **Deploy command** | `npx wrangler deploy` (default is fine) |
+| **Deploy command** | `npx wrangler deploy` |
 
-Use **npm** for installs if the UI lets you choose a package manager. If Cloudflare defaults to **Bun** at the monorepo root, either set **root directory** to `frontend` (so dependencies install correctly) or use the root build: `npm install && npm run build` from the repo root (that runs `cf-build` in `frontend`).
+Use **npm** for installs if the UI lets you choose a package manager. If Cloudflare defaults to **Bun** at the monorepo root with an empty root directory, **Option B** avoids “No packages” during install because dependencies live in `frontend/package.json`.
 
 ### Build variables (recommended)
 

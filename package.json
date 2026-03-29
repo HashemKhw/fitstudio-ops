@@ -6,6 +6,7 @@
     "dev:frontend": "npm run dev --prefix frontend",
     "dev:backend": "npm run dev --prefix backend",
     "build": "npm install --prefix frontend && npm run cf-build --prefix frontend",
+    "cloudflare-deploy": "npx wrangler deploy --config frontend/wrangler.jsonc",
     "build:backend": "npm run build --prefix backend",
     "start:frontend": "npm run start --prefix frontend",
     "start:backend": "npm run start --prefix backend"
