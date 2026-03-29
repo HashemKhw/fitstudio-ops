@@ -27,20 +27,22 @@ export function Testimonials() {
     <Section className="border-t border-zinc-200 bg-zinc-50">
       <Container>
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl">
+          <h2 className="text-2xl font-bold tracking-tight text-zinc-900 sm:text-4xl">
             Trusted by operators who value their time
           </h2>
-          <p className="mt-4 text-lg text-zinc-600">
+          <p className="mt-3 text-base leading-relaxed text-zinc-600 sm:mt-4 sm:text-lg">
             Placeholder testimonials for launch—you can swap in real quotes and headshots anytime.
           </p>
         </div>
-        <ul className="mt-14 grid gap-8 md:grid-cols-3">
+        <ul className="mt-10 grid gap-5 sm:mt-14 sm:gap-8 md:grid-cols-3">
           {quotes.map((t) => (
             <li
               key={t.name}
-              className="flex flex-col rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition-all duration-500 ease-out hover:-translate-y-0.5 hover:border-brand-100 hover:shadow-md"
+              className="flex flex-col rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm transition-all duration-500 ease-out hover:-translate-y-0.5 hover:border-brand-100 hover:shadow-md sm:p-6"
             >
-              <p className="flex-1 text-sm leading-relaxed text-zinc-700">&ldquo;{t.quote}&rdquo;</p>
+              <p className="flex-1 text-pretty text-sm leading-relaxed text-zinc-700">
+                &ldquo;{t.quote}&rdquo;
+              </p>
               <div className="mt-6 border-t border-zinc-100 pt-4">
                 <p className="font-semibold text-zinc-900">{t.name}</p>
                 <p className="text-sm text-zinc-500">{t.role}</p>

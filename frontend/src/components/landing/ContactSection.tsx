@@ -6,8 +6,8 @@ export function ContactSection() {
   const whatsappUrl = getWhatsAppUrl();
 
   return (
-    <section id={CONTACT_SECTION_ID} className="scroll-mt-24">
-      <div className="relative overflow-hidden bg-gradient-to-br from-brand-700 via-brand-700 to-brand-900 py-16 text-white sm:py-20">
+    <section id={CONTACT_SECTION_ID}>
+      <div className="relative overflow-hidden bg-gradient-to-br from-brand-700 via-brand-700 to-brand-900 py-12 text-white sm:py-20">
         <div
           className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-white/10 blur-3xl"
           aria-hidden
@@ -18,18 +18,18 @@ export function ContactSection() {
         />
         <Container>
           <div className="relative mx-auto max-w-3xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Contact us</h2>
-            <p className="mt-4 text-lg text-brand-100">
+            <h2 className="text-2xl font-bold tracking-tight sm:text-4xl">Contact us</h2>
+            <p className="mt-3 text-base text-brand-100 sm:mt-4 sm:text-lg">
               Send a message and we&apos;ll get back to you shortly.
             </p>
           </div>
         </Container>
       </div>
-      <div className="border-t border-white/10 bg-zinc-50 py-16 sm:py-20">
+      <div className="border-t border-white/10 bg-zinc-50 py-12 sm:py-20">
         <Container>
           <div className="mx-auto max-w-xl">
-            <h3 className="text-center text-xl font-semibold text-zinc-900">Your details</h3>
-            <p className="mt-2 text-center text-sm text-zinc-600">
+            <h3 className="text-center text-lg font-semibold text-zinc-900 sm:text-xl">Your details</h3>
+            <p className="mt-2 text-center text-sm leading-relaxed text-zinc-600">
               Fill out the form below, or use WhatsApp if you prefer.
             </p>
             <div className="mt-8">

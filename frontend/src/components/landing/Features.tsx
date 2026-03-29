@@ -40,19 +40,19 @@ export function Features() {
     <Section id="features" className="bg-white">
       <Container>
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl">
+          <h2 className="text-2xl font-bold tracking-tight text-zinc-900 sm:text-4xl">
             Everything you need to operate—not babysit software
           </h2>
-          <p className="mt-4 text-lg text-zinc-600">
+          <p className="mt-3 text-base leading-relaxed text-zinc-600 sm:mt-4 sm:text-lg">
             Built for busy owners: clear UI, mobile-friendly dashboards, and workflows your team will
             actually use.
           </p>
         </div>
-        <ul className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="mt-10 grid gap-4 sm:mt-14 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
           {features.map((f) => (
             <li
               key={f.title}
-              className="group rounded-2xl border border-zinc-200 bg-zinc-50/50 p-6 shadow-sm transition-all duration-500 ease-out hover:-translate-y-0.5 hover:border-brand-200/80 hover:shadow-md hover:shadow-brand-500/5"
+              className="group rounded-2xl border border-zinc-200 bg-zinc-50/50 p-5 shadow-sm transition-all duration-500 ease-out hover:-translate-y-0.5 hover:border-brand-200/80 hover:shadow-md hover:shadow-brand-500/5 sm:p-6"
             >
               <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-600 text-sm font-bold text-white shadow-md shadow-brand-600/25 transition-transform duration-500 ease-out group-hover:scale-[1.03]">
                 {f.icon}
@@ -62,8 +62,8 @@ export function Features() {
             </li>
           ))}
         </ul>
-        <div className="mx-auto mt-16 max-w-2xl rounded-2xl border border-zinc-200 bg-gradient-to-b from-brand-50/80 to-white px-6 py-10 text-center shadow-sm transition-all duration-500 ease-out hover:border-brand-200/60 hover:shadow-md sm:px-10 sm:py-12">
-          <p className="text-lg font-semibold text-zinc-900">Questions? We&apos;re here to help.</p>
+        <div className="mx-auto mt-12 max-w-2xl rounded-2xl border border-zinc-200 bg-gradient-to-b from-brand-50/80 to-white px-4 py-8 text-center shadow-sm transition-all duration-500 ease-out hover:border-brand-200/60 hover:shadow-md sm:mt-16 sm:px-10 sm:py-12">
+          <p className="text-base font-semibold text-zinc-900 sm:text-lg">Questions? We&apos;re here to help.</p>
           <div className="mt-6">
             <CtaButtonGroup />
           </div>

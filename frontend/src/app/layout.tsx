@@ -19,6 +19,12 @@ export const metadata: Metadata = {
     "Member billing, classes, attendance, and revenue insights in one place. Built for gym owners who want time back and revenue up.",
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover" as const,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{

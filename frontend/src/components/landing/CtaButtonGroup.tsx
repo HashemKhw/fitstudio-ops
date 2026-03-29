@@ -17,7 +17,10 @@ export function CtaButtonGroup({ compact = false, className = "" }: CtaButtonGro
 
   return (
     <div className={`flex justify-center ${className}`}>
-      <a href={`#${CONTACT_SECTION_ID}`} className={`${contactClass}${cm}`}>
+      <a
+        href={`#${CONTACT_SECTION_ID}`}
+        className={`${contactClass} min-h-11 w-full max-w-full touch-manipulation sm:min-h-0 sm:w-auto sm:max-w-none${cm}`}
+      >
         Contact Us
       </a>
     </div>

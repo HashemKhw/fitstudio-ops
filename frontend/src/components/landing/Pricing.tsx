@@ -57,25 +57,25 @@ export function Pricing() {
     <Section id="pricing" className="bg-white">
       <Container>
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl">
+          <h2 className="text-2xl font-bold tracking-tight text-zinc-900 sm:text-4xl">
             Simple pricing that scales with you
           </h2>
-          <p className="mt-4 text-lg text-zinc-600">
+          <p className="mt-3 text-base leading-relaxed text-zinc-600 sm:mt-4 sm:text-lg">
             Get a tailored quote for your gym or studio—reach out and we&apos;ll walk you through the right plan.
           </p>
         </div>
-        <div className="mt-14 grid gap-8 lg:grid-cols-3">
+        <div className="mt-10 grid gap-6 sm:mt-14 sm:gap-8 lg:grid-cols-3">
           {tiers.map((tier) => (
             <div
               key={tier.name}
-              className={`relative flex flex-col rounded-2xl border p-8 shadow-sm transition-all duration-500 ease-out hover:-translate-y-0.5 hover:shadow-lg ${
+              className={`relative flex flex-col rounded-2xl border p-5 shadow-sm transition-all duration-500 ease-out hover:-translate-y-0.5 hover:shadow-lg sm:p-8 ${
                 tier.highlighted
                   ? "border-brand-600 bg-brand-50/30 ring-2 ring-brand-600 hover:shadow-brand-500/10"
                   : "border-zinc-200 bg-zinc-50/50 hover:border-zinc-300"
               }`}
             >
               {tier.highlighted && (
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-brand-600 px-3 py-0.5 text-xs font-semibold text-white">
+                <span className="absolute -top-2.5 left-1/2 max-w-[calc(100%-2rem)] -translate-x-1/2 truncate rounded-full bg-brand-600 px-2.5 py-0.5 text-[11px] font-semibold text-white sm:-top-3 sm:px-3 sm:text-xs">
                   Most popular
                 </span>
               )}

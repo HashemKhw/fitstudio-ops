@@ -92,7 +92,7 @@ export function ContactForm() {
     <form
       id={CONTACT_FORM_ANCHOR_ID}
       onSubmit={onSubmit}
-      className="scroll-mt-28 space-y-5 rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition-[box-shadow,border-color] duration-500 ease-out focus-within:border-brand-200/60 focus-within:shadow-md sm:p-8"
+      className="space-y-4 rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm transition-[box-shadow,border-color] duration-500 ease-out focus-within:border-brand-200/60 focus-within:shadow-md sm:space-y-5 sm:p-8"
       noValidate
     >
       <div>
@@ -104,7 +104,7 @@ export function ContactForm() {
           name="name"
           type="text"
           autoComplete="name"
-          className="mt-1.5 w-full rounded-lg border border-zinc-200 bg-white px-3 py-2.5 text-zinc-900 shadow-sm outline-none ring-zinc-200 placeholder:text-zinc-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20"
+          className="mt-1.5 w-full rounded-lg border border-zinc-200 bg-white px-3 py-3 text-base text-zinc-900 shadow-sm outline-none ring-zinc-200 placeholder:text-zinc-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20"
           placeholder="Your name"
         />
         {errors.name ? <p className="mt-1 text-sm text-red-600">{errors.name}</p> : null}
@@ -118,7 +118,7 @@ export function ContactForm() {
           name="email"
           type="email"
           autoComplete="email"
-          className="mt-1.5 w-full rounded-lg border border-zinc-200 bg-white px-3 py-2.5 text-zinc-900 shadow-sm outline-none ring-zinc-200 placeholder:text-zinc-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20"
+          className="mt-1.5 w-full rounded-lg border border-zinc-200 bg-white px-3 py-3 text-base text-zinc-900 shadow-sm outline-none ring-zinc-200 placeholder:text-zinc-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20"
           placeholder="you@yourgym.com"
         />
         {errors.email ? <p className="mt-1 text-sm text-red-600">{errors.email}</p> : null}
@@ -132,7 +132,7 @@ export function ContactForm() {
           name="phone"
           type="tel"
           autoComplete="tel"
-          className="mt-1.5 w-full rounded-lg border border-zinc-200 bg-white px-3 py-2.5 text-zinc-900 shadow-sm outline-none ring-zinc-200 placeholder:text-zinc-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20"
+          className="mt-1.5 w-full rounded-lg border border-zinc-200 bg-white px-3 py-3 text-base text-zinc-900 shadow-sm outline-none ring-zinc-200 placeholder:text-zinc-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20"
           placeholder="+1 (555) 000-0000"
         />
         {errors.phone ? <p className="mt-1 text-sm text-red-600">{errors.phone}</p> : null}
@@ -145,7 +145,7 @@ export function ContactForm() {
           id="contact-message"
           name="message"
           rows={4}
-          className="mt-1.5 w-full resize-y rounded-lg border border-zinc-200 bg-white px-3 py-2.5 text-zinc-900 shadow-sm outline-none ring-zinc-200 placeholder:text-zinc-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20"
+          className="mt-1.5 w-full resize-y rounded-lg border border-zinc-200 bg-white px-3 py-3 text-base text-zinc-900 shadow-sm outline-none ring-zinc-200 placeholder:text-zinc-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20"
           placeholder="Tell us about your gym or studio and what you’re looking for."
         />
         {errors.message ? <p className="mt-1 text-sm text-red-600">{errors.message}</p> : null}
@@ -159,7 +159,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={status === "loading"}
-        className="w-full rounded-lg bg-brand-600 px-4 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-brand-700 disabled:opacity-60 sm:w-auto sm:min-w-[200px]"
+        className="min-h-12 w-full touch-manipulation rounded-lg bg-brand-600 px-4 py-3 text-base font-semibold text-white shadow-sm transition-colors hover:bg-brand-700 disabled:opacity-60 sm:w-auto sm:min-w-[200px] sm:text-sm"
       >
         {status === "loading" ? "Sending…" : "Send Message"}
       </button>

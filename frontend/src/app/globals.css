@@ -45,6 +45,14 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+@supports (padding: max(0px)) {
+  body {
+    padding-left: max(0px, env(safe-area-inset-left, 0px));
+    padding-right: max(0px, env(safe-area-inset-right, 0px));
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -66,6 +74,20 @@ html {
 
 body {
   @apply bg-zinc-50 text-zinc-900 antialiased;
+  overflow-x: hidden;
+}
+
+/* Anchor scroll under sticky header (mobile + desktop) */
+main section[id],
+#contact {
+  scroll-margin-top: 5.5rem;
+}
+
+@media (min-width: 640px) {
+  main section[id],
+  #contact {
+    scroll-margin-top: 6rem;
+  }
 }
 
 .animate-fade-rise {
