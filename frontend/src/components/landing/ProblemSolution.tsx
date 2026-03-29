@@ -49,7 +49,10 @@ export function ProblemSolution() {
             <h3 className="text-sm font-semibold uppercase tracking-wider text-zinc-500">Common pain</h3>
             <ul className="mt-6 space-y-6">
               {problems.map((item) => (
-                <li key={item.title} className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
+                <li
+                  key={item.title}
+                  className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition-all duration-500 ease-out hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md"
+                >
                   <p className="font-semibold text-zinc-900">{item.title}</p>
                   <p className="mt-2 text-zinc-600">{item.body}</p>
                 </li>
@@ -62,7 +65,7 @@ export function ProblemSolution() {
               {solutions.map((item) => (
                 <li
                   key={item.title}
-                  className="rounded-2xl border border-brand-100 bg-white p-6 shadow-sm ring-1 ring-brand-50"
+                  className="rounded-2xl border border-brand-100 bg-white p-6 shadow-sm ring-1 ring-brand-50 transition-all duration-500 ease-out hover:-translate-y-0.5 hover:shadow-md hover:ring-brand-100"
                 >
                   <p className="font-semibold text-zinc-900">{item.title}</p>
                   <p className="mt-2 text-zinc-600">{item.body}</p>

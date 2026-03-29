@@ -7,6 +7,7 @@ import { ProblemSolution } from "@/components/landing/ProblemSolution";
 import { ProductPreview } from "@/components/landing/ProductPreview";
 import { SiteHeader } from "@/components/landing/SiteHeader";
 import { Testimonials } from "@/components/landing/Testimonials";
+import { Reveal } from "@/components/motion/Reveal";
 
 export default function HomePage() {
   return (
@@ -14,12 +15,24 @@ export default function HomePage() {
       <SiteHeader />
       <main>
         <Hero />
-        <ProblemSolution />
-        <Features />
-        <ProductPreview />
-        <Pricing />
-        <Testimonials />
-        <ContactSection />
+        <Reveal>
+          <ProblemSolution />
+        </Reveal>
+        <Reveal>
+          <Features />
+        </Reveal>
+        <Reveal>
+          <ProductPreview />
+        </Reveal>
+        <Reveal>
+          <Pricing />
+        </Reveal>
+        <Reveal>
+          <Testimonials />
+        </Reveal>
+        <Reveal>
+          <ContactSection />
+        </Reveal>
       </main>
       <Footer />
     </>

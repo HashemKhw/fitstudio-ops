@@ -14,7 +14,7 @@ export function ProductPreview() {
             between sessions.
           </p>
         </div>
-        <div className="mt-12 overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-xl shadow-zinc-200/50 ring-1 ring-zinc-100">
+        <div className="mt-12 overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-xl shadow-zinc-200/50 ring-1 ring-zinc-100 transition-all duration-700 ease-out hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-brand-500/10">
           <div className="flex items-center gap-2 border-b border-zinc-100 bg-zinc-50/80 px-4 py-3">
             <span className="h-3 w-3 rounded-full bg-red-400/90" />
             <span className="h-3 w-3 rounded-full bg-amber-400/90" />

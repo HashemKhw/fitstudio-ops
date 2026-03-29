@@ -68,10 +68,10 @@ export function Pricing() {
           {tiers.map((tier) => (
             <div
               key={tier.name}
-              className={`relative flex flex-col rounded-2xl border p-8 shadow-sm ${
+              className={`relative flex flex-col rounded-2xl border p-8 shadow-sm transition-all duration-500 ease-out hover:-translate-y-0.5 hover:shadow-lg ${
                 tier.highlighted
-                  ? "border-brand-600 bg-brand-50/30 ring-2 ring-brand-600"
-                  : "border-zinc-200 bg-zinc-50/50"
+                  ? "border-brand-600 bg-brand-50/30 ring-2 ring-brand-600 hover:shadow-brand-500/10"
+                  : "border-zinc-200 bg-zinc-50/50 hover:border-zinc-300"
               }`}
             >
               {tier.highlighted && (

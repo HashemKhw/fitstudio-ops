@@ -7,9 +7,17 @@ export function ContactSection() {
 
   return (
     <section id={CONTACT_SECTION_ID} className="scroll-mt-24">
-      <div className="bg-brand-700 py-16 text-white sm:py-20">
+      <div className="relative overflow-hidden bg-gradient-to-br from-brand-700 via-brand-700 to-brand-900 py-16 text-white sm:py-20">
+        <div
+          className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-white/10 blur-3xl"
+          aria-hidden
+        />
+        <div
+          className="pointer-events-none absolute -bottom-16 -left-16 h-56 w-56 rounded-full bg-brand-500/30 blur-3xl"
+          aria-hidden
+        />
         <Container>
-          <div className="mx-auto max-w-3xl text-center">
+          <div className="relative mx-auto max-w-3xl text-center">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Contact us</h2>
             <p className="mt-4 text-lg text-brand-100">
               Send a message and we&apos;ll get back to you shortly.
@@ -17,7 +25,7 @@ export function ContactSection() {
           </div>
         </Container>
       </div>
-      <div className="border-t border-brand-600/30 bg-zinc-50 py-16 sm:py-20">
+      <div className="border-t border-white/10 bg-zinc-50 py-16 sm:py-20">
         <Container>
           <div className="mx-auto max-w-xl">
             <h3 className="text-center text-xl font-semibold text-zinc-900">Your details</h3>
@@ -40,9 +48,9 @@ export function ContactSection() {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex w-full max-w-md items-center justify-center rounded-lg bg-emerald-600 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-emerald-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600 sm:w-auto"
+                className="inline-flex w-full max-w-md items-center justify-center rounded-lg bg-emerald-600 px-5 py-3 text-sm font-semibold text-white shadow-md transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-emerald-700 hover:shadow-lg hover:shadow-emerald-600/30 active:translate-y-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600 sm:w-auto"
               >
-                Message on WhatsApp
+                Message us on WhatsApp
               </a>
             </div>
           </div>

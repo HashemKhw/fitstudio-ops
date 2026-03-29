@@ -52,9 +52,9 @@ export function Features() {
           {features.map((f) => (
             <li
               key={f.title}
-              className="group rounded-2xl border border-zinc-200 bg-zinc-50/50 p-6 transition-shadow hover:shadow-md"
+              className="group rounded-2xl border border-zinc-200 bg-zinc-50/50 p-6 shadow-sm transition-all duration-500 ease-out hover:-translate-y-0.5 hover:border-brand-200/80 hover:shadow-md hover:shadow-brand-500/5"
             >
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-600 text-sm font-bold text-white">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-600 text-sm font-bold text-white shadow-md shadow-brand-600/25 transition-transform duration-500 ease-out group-hover:scale-[1.03]">
                 {f.icon}
               </div>
               <h3 className="mt-4 font-semibold text-zinc-900">{f.title}</h3>
@@ -62,7 +62,7 @@ export function Features() {
             </li>
           ))}
         </ul>
-        <div className="mx-auto mt-16 max-w-2xl rounded-2xl border border-zinc-200 bg-gradient-to-b from-brand-50/80 to-white px-6 py-10 text-center shadow-sm sm:px-10 sm:py-12">
+        <div className="mx-auto mt-16 max-w-2xl rounded-2xl border border-zinc-200 bg-gradient-to-b from-brand-50/80 to-white px-6 py-10 text-center shadow-sm transition-all duration-500 ease-out hover:border-brand-200/60 hover:shadow-md sm:px-10 sm:py-12">
           <p className="text-lg font-semibold text-zinc-900">Questions? We&apos;re here to help.</p>
           <div className="mt-6">
             <CtaButtonGroup />

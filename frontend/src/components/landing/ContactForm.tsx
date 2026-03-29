@@ -84,7 +84,7 @@ export function ContactForm() {
     <form
       id={CONTACT_FORM_ANCHOR_ID}
       onSubmit={onSubmit}
-      className="scroll-mt-28 space-y-5 rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm sm:p-8"
+      className="scroll-mt-28 space-y-5 rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition-[box-shadow,border-color] duration-500 ease-out focus-within:border-brand-200/60 focus-within:shadow-md sm:p-8"
       noValidate
     >
       <div>

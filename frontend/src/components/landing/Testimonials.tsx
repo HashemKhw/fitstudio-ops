@@ -38,7 +38,7 @@ export function Testimonials() {
           {quotes.map((t) => (
             <li
               key={t.name}
-              className="flex flex-col rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm"
+              className="flex flex-col rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition-all duration-500 ease-out hover:-translate-y-0.5 hover:border-brand-100 hover:shadow-md"
             >
               <p className="flex-1 text-sm leading-relaxed text-zinc-700">&ldquo;{t.quote}&rdquo;</p>
               <div className="mt-6 border-t border-zinc-100 pt-4">
