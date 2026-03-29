@@ -114,7 +114,7 @@ In the Cloudflare dashboard: **Workers & Pages** → your Worker → **Settings*
 
 `npm run cloudflare-deploy` runs Wrangler with `--config frontend/wrangler.jsonc` so paths like `.open-next/worker.js` resolve correctly. The default `npx wrangler deploy` from the repo root (with no config) fails because `wrangler.jsonc` lives under `frontend/`.
 
-The Worker name in `frontend/wrangler.jsonc` (`name` and `services[].service` for `WORKER_SELF_REFERENCE`) must match your Cloudflare **project / Worker name** (e.g. `fitstudio-opss`). If you rename the Worker in the dashboard, update `wrangler.jsonc` or deploys will fail with a service-binding error.
+The Worker name in `frontend/wrangler.jsonc` (`name` and `services[].service` for `WORKER_SELF_REFERENCE`) must match your Cloudflare **project / Worker name** exactly (e.g. `fitstudio`). If you rename the Worker in the dashboard, update `wrangler.jsonc` or deploys will fail with a service-binding error.
 
 **Option B — Build only the Next app** (often simpler):
 
