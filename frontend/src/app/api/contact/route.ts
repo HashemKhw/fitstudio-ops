@@ -1,6 +1,14 @@
 import { NextResponse } from "next/server";
 
-const BACKEND_URL = process.env.BACKEND_API_URL;
+/** Prefer env; in local `next dev`, default to the Express API if unset (see `.env.development`). */
+function resolveBackendUrl(): string | undefined {
+  const explicit = process.env.BACKEND_API_URL?.trim();
+  if (explicit) return explicit;
+  if (process.env.NODE_ENV === "development") {
+    return "http://localhost:4000";
+  }
+  return undefined;
+}
 
 type ContactBody = {
   name?: string;
@@ -92,9 +100,10 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: validationError }, { status: 400 });
   }
 
-  if (BACKEND_URL?.trim()) {
+  const backendUrl = resolveBackendUrl();
+  if (backendUrl) {
     try {
-      const res = await fetch(`${BACKEND_URL.replace(/\/$/, "")}/api/leads/contact`, {
+      const res = await fetch(`${backendUrl.replace(/\/$/, "")}/api/leads/contact`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(b),
@@ -123,7 +132,7 @@ export async function POST(request: Request) {
   return NextResponse.json(
     {
       error:
-        "Contact form is not configured. Set BACKEND_API_URL (Express + SMTP) or RESEND_API_KEY on the server.",
+        "Contact form is not configured. Set BACKEND_API_URL (your Express API + SMTP) or RESEND_API_KEY. On Cloudflare: Workers → your worker → Settings → Variables and secrets. Locally: copy frontend/.env.example to .env.local or run `next dev` with the backend on port 4000.",
     },
     { status: 503 },
   );

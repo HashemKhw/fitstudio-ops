@@ -1,4 +1,6 @@
 {
+	// Contact form: add BACKEND_API_URL (public URL of your Express API) and/or RESEND_API_KEY
+	// in Cloudflare Dashboard → Workers → this worker → Settings → Variables and secrets.
 	"$schema": "node_modules/wrangler/config-schema.json",
 	"main": ".open-next/worker.js",
 	"name": "fitstudio",
