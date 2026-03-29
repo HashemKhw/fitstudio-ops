@@ -1,9 +1,10 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import { getEnvString } from "@/lib/workerEnv";
 
 /** Prefer env; in local `next dev`, default to the Express API if unset (see `.env.development`). */
 function resolveBackendUrl(): string | undefined {
-  const explicit = process.env.BACKEND_API_URL?.trim();
+  const explicit = getEnvString("BACKEND_API_URL");
   if (explicit) return explicit;
   if (process.env.NODE_ENV === "development") {
     return "http://localhost:4000";
@@ -43,17 +44,16 @@ function escapeHtml(s: string): string {
 }
 
 async function sendViaResend(body: ContactBody): Promise<boolean> {
-  // Replace re_xxxxxxxxx with your real key: set RESEND_API_KEY in .env.local or Cloudflare Worker secrets.
-  const key = process.env.RESEND_API_KEY?.trim();
+  const key = getEnvString("RESEND_API_KEY");
   if (!key) return false;
 
   const name = String(body.name ?? "").trim();
   const email = String(body.email ?? "").trim();
   const phone = String(body.phone ?? "").trim();
   const message = String(body.message ?? "").trim();
-  const to = process.env.CONTACT_TO_EMAIL?.trim() || DEFAULT_TO;
+  const to = getEnvString("CONTACT_TO_EMAIL") || DEFAULT_TO;
   const from =
-    process.env.RESEND_FROM?.trim() || "FitStudio Ops <onboarding@resend.dev>";
+    getEnvString("RESEND_FROM") || "FitStudio Ops <onboarding@resend.dev>";
 
   const html = `
     <h2 style="font-family:sans-serif;font-size:18px;">New contact — FitStudio Ops</h2>
@@ -116,7 +116,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: true });
   }
 
-  if (process.env.RESEND_API_KEY?.trim()) {
+  if (getEnvString("RESEND_API_KEY")) {
     const ok = await sendViaResend(b);
     if (!ok) {
       return NextResponse.json({ error: "Could not send email. Check RESEND_API_KEY and sender domain." }, { status: 500 });
@@ -127,7 +127,7 @@ export async function POST(request: Request) {
   return NextResponse.json(
     {
       error:
-        "Contact form is not configured. Set BACKEND_API_URL (your Express API + SMTP) or RESEND_API_KEY. On Cloudflare: Workers → your worker → Settings → Variables and secrets. Locally: copy frontend/.env.example to .env.local or run `next dev` with the backend on port 4000.",
+        "Contact form is not configured. Add RESEND_API_KEY as an encrypted secret (or BACKEND_API_URL to your API). Cloudflare: Workers → fitstudio-opss → Settings → Variables and secrets → Add → Secret. Redeploy after saving. Locally: set RESEND_API_KEY or BACKEND_API_URL in frontend/.env.local (see .env.example).",
     },
     { status: 503 },
   );

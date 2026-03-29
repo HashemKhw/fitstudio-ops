@@ -6,6 +6,10 @@
 	"name": "fitstudio-opss",
 	"compatibility_date": "2026-03-29",
 	"compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+	// Plain vars ship with the repo; add RESEND_API_KEY only via Dashboard → Secrets (or `wrangler secret put`).
+	"vars": {
+		"CONTACT_TO_EMAIL": "hashemkhw1@gmail.com"
+	},
 	"assets": {
 		"directory": ".open-next/assets",
 		"binding": "ASSETS"
