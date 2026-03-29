@@ -12,7 +12,7 @@ export async function POST(request: Request) {
 
   if (BACKEND_URL) {
     try {
-      const res = await fetch(`${BACKEND_URL.replace(/\/$/, "")}/api/leads/trial`, {
+      const res = await fetch(`${BACKEND_URL.replace(/\/$/, "")}/api/leads/contact`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),

@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
+import { CONTACT_FORM_ANCHOR_ID, CONTACT_SECTION_ID } from "@/lib/cta";
 
 const tiers = [
   {
@@ -8,8 +9,14 @@ const tiers = [
     price: "$79",
     period: "/month",
     description: "Solo locations getting off spreadsheets.",
-    features: ["Up to 300 members", "Class scheduling & bookings", "Manual & QR check-in", "Email reminders", "Standard support"],
-    cta: "Start free trial",
+    features: [
+      "Up to 300 members",
+      "Class scheduling & bookings",
+      "Manual & QR check-in",
+      "Email reminders",
+      "Standard support",
+    ],
+    cta: "Contact Us",
     highlighted: false,
   },
   {
@@ -25,7 +32,7 @@ const tiers = [
       "SMS + email notifications",
       "Revenue & attendance analytics",
     ],
-    cta: "Start free trial",
+    cta: "Contact Us",
     highlighted: true,
   },
   {
@@ -40,7 +47,7 @@ const tiers = [
       "SLA & priority support",
       "Custom reporting",
     ],
-    cta: "Book demo",
+    cta: "Book a Demo",
     highlighted: false,
   },
 ];
@@ -54,7 +61,7 @@ export function Pricing() {
             Simple pricing that scales with you
           </h2>
           <p className="mt-4 text-lg text-zinc-600">
-            Start with a 14-day free trial. Upgrade when you are ready—no surprise fees on core features.
+            Get a tailored quote for your gym or studio—reach out and we&apos;ll walk you through the right plan.
           </p>
         </div>
         <div className="mt-14 grid gap-8 lg:grid-cols-3">
@@ -76,9 +83,7 @@ export function Pricing() {
               <p className="mt-2 text-sm text-zinc-600">{tier.description}</p>
               <p className="mt-6 flex items-baseline gap-1">
                 <span className="text-4xl font-bold tracking-tight text-zinc-900">{tier.price}</span>
-                {tier.period ? (
-                  <span className="text-zinc-500">{tier.period}</span>
-                ) : null}
+                {tier.period ? <span className="text-zinc-500">{tier.period}</span> : null}
               </p>
               <ul className="mt-8 flex-1 space-y-3 text-sm text-zinc-600">
                 {tier.features.map((f) => (
@@ -91,15 +96,13 @@ export function Pricing() {
                 ))}
               </ul>
               <div className="mt-8">
-                {tier.name === "Enterprise" ? (
-                  <Button href="#demo" variant={tier.highlighted ? "primary" : "secondary"} className="w-full">
-                    {tier.cta}
-                  </Button>
-                ) : (
-                  <Button href="#trial-form" variant={tier.highlighted ? "primary" : "secondary"} className="w-full">
-                    {tier.cta}
-                  </Button>
-                )}
+                <Button
+                  href={tier.cta === "Book a Demo" ? `#${CONTACT_FORM_ANCHOR_ID}` : `#${CONTACT_SECTION_ID}`}
+                  variant={tier.highlighted ? "primary" : "secondary"}
+                  className="w-full"
+                >
+                  {tier.cta}
+                </Button>
               </div>
             </div>
           ))}

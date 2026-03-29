@@ -16,7 +16,7 @@ const quotes = [
   },
   {
     quote:
-      "Auto-renew and invoices alone paid for the subscription in the first month. The trial made the decision easy.",
+      "Auto-renew and invoices alone paid for the subscription in the first month. Their team made onboarding painless.",
     name: "Marcus T.",
     role: "Founder, Urban Box Club",
   },

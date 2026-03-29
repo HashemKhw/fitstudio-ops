@@ -20,13 +20,13 @@ Monorepo scaffold: **Next.js + Tailwind** marketing site and **Express + MongoDB
 
 | Section | Headline / CTA |
 |---------|----------------|
-| **Hero** | *Run your gym without the spreadsheet chaos* — CTAs: **Start free trial**, **Book a live demo** |
+| **Hero** | *Run your gym without the spreadsheet chaos* — CTAs: **Contact Us**, **Book a Demo**, **WhatsApp** |
 | **Problem → solution** | *Sound familiar?* — pain vs. how FitStudio Ops fixes it |
 | **Features** | *Everything you need to operate* — six benefit cards |
 | **Product preview** | *Your command center, on any device* — dashboard mock |
 | **Pricing** | Basic ($79), Pro ($149), Enterprise (custom) |
 | **Testimonials** | Three placeholder quotes (swap for real social proof) |
-| **Final CTA** | *Ready to reclaim your weeknights?* — trial + demo forms |
+| **Contact** | Closing CTA + **contact form** (name, email, phone, message) |
 
 ---
 
@@ -37,8 +37,7 @@ TRY/
 ├── frontend/                 # Next.js 15 (App Router), Tailwind v4
 │   ├── src/
 │   │   ├── app/
-│   │   │   ├── api/trial/route.ts    # Proxies to backend when BACKEND_API_URL set
-│   │   │   ├── api/demo/route.ts
+│   │   │   ├── api/contact/route.ts  # Proxies to backend /api/leads/contact when BACKEND_API_URL set
 │   │   │   ├── layout.tsx
 │   │   │   ├── page.tsx              # Composes landing sections
 │   │   │   └── globals.css
@@ -67,7 +66,7 @@ TRY/
 2. **Tailwind** — configured via `postcss.config.mjs` and `src/app/globals.css` (`@import "tailwindcss"`).
 3. **Landing components** — built under `src/components/landing/`.
 4. **Reusable UI** — `Button`, `Container`, `Section` in `src/components/ui/`.
-5. **Forms** — `TrialForm` / `DemoForm` post to `/api/trial` and `/api/demo` (can forward to the API with `BACKEND_API_URL`).
+5. **Forms** — `ContactForm` posts to `/api/contact` (optional proxy to `POST /api/leads/contact` with `BACKEND_API_URL`).
 6. **Backend API** — `cd backend && npm install && npm run dev` (default port `4000`).
 7. **Database** — set `MONGODB_URI` (MongoDB Atlas). Leads persist to the `Lead` collection when connected.
 8. **Authentication** — `POST /api/auth/login` is a **demo-only** placeholder; replace with real users + password hashes before production.
@@ -156,8 +155,10 @@ cd frontend && npm run deploy
 
 **Frontend** (`frontend/.env.example`)
 
-- `BACKEND_API_URL` — optional; if set, route handlers proxy form submissions to the backend.
+- `BACKEND_API_URL` — optional; if set, `/api/contact` proxies to the backend.
 - `NEXT_PUBLIC_GA_MEASUREMENT_ID` — optional GA4 measurement ID.
+- `NEXT_PUBLIC_WHATSAPP_PHONE` — digits only (with country code), for `wa.me` links.
+- `NEXT_PUBLIC_CONTACT_EMAIL` — for `mailto` / Hero “Send us a note”.
 
 **Backend** (`backend/.env.example`)
 
@@ -199,4 +200,4 @@ npm run dev:backend
 
 Or per package: `cd frontend && npm install && npm run dev` and `cd backend && npm install && npm run dev`.
 
-The marketing site is at **http://localhost:3000** and the API at **http://localhost:4000** (`GET /api/health` should return `{ "status": "ok" }`). Trial and demo forms work without MongoDB; set `MONGODB_URI` on the backend to persist leads. To forward forms from Next to the API, set `BACKEND_API_URL=http://localhost:4000` in `frontend/.env.local`.
+The marketing site is at **http://localhost:3000** and the API at **http://localhost:4000** (`GET /api/health` should return `{ "status": "ok" }`). The contact form works without MongoDB; set `MONGODB_URI` on the backend to persist leads. To forward submissions from Next to the API, set `BACKEND_API_URL=http://localhost:4000` in `frontend/.env.local`. Set `NEXT_PUBLIC_WHATSAPP_PHONE` and `NEXT_PUBLIC_CONTACT_EMAIL` for WhatsApp and `mailto` links.

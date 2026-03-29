@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const leadSchema = new mongoose.Schema(
   {
-    type: { type: String, enum: ["trial", "demo"], required: true },
+    type: { type: String, enum: ["trial", "demo", "contact"], required: true },
     gymName: { type: String },
     email: { type: String, required: true },
     phone: { type: String },

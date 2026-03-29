@@ -1,4 +1,4 @@
-import { FinalCta } from "@/components/landing/FinalCta";
+import { ContactSection } from "@/components/landing/ContactSection";
 import { Features } from "@/components/landing/Features";
 import { Footer } from "@/components/landing/Footer";
 import { Hero } from "@/components/landing/Hero";
@@ -19,7 +19,7 @@ export default function HomePage() {
         <ProductPreview />
         <Pricing />
         <Testimonials />
-        <FinalCta />
+        <ContactSection />
       </main>
       <Footer />
     </>

@@ -1,7 +1,10 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
+import { CONTACT_SECTION_ID, getContactMailtoUrl } from "@/lib/cta";
 
 export function Footer() {
+  const mailto = getContactMailtoUrl();
+
   return (
     <footer className="border-t border-zinc-200 bg-white py-12">
       <Container>
@@ -14,8 +17,11 @@ export function Footer() {
             <Link href="#pricing" className="hover:text-zinc-900">
               Pricing
             </Link>
-            <a href="mailto:hello@fitstudioops.com" className="hover:text-zinc-900">
+            <a href={`#${CONTACT_SECTION_ID}`} className="hover:text-zinc-900">
               Contact
+            </a>
+            <a href={mailto} className="hover:text-zinc-900">
+              Email
             </a>
             <span className="text-zinc-400">Privacy · Terms (add your legal pages)</span>
           </div>

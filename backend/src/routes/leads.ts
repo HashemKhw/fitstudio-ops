@@ -17,6 +17,13 @@ const demoSchema = z.object({
   message: z.string().optional(),
 });
 
+const contactSchema = z.object({
+  name: z.string().min(1),
+  email: z.string().email(),
+  phone: z.string().optional(),
+  message: z.string().min(10),
+});
+
 leadsRouter.post("/trial", async (req, res) => {
   const parsed = trialSchema.safeParse(req.body);
   if (!parsed.success) {
@@ -41,6 +48,22 @@ leadsRouter.post("/demo", async (req, res) => {
   if (process.env.MONGODB_URI) {
     try {
       await Lead.create({ type: "demo", ...parsed.data });
+    } catch (e) {
+      console.error(e);
+      return res.status(500).json({ error: "Could not save lead" });
+    }
+  }
+  return res.json({ ok: true });
+});
+
+leadsRouter.post("/contact", async (req, res) => {
+  const parsed = contactSchema.safeParse(req.body);
+  if (!parsed.success) {
+    return res.status(400).json({ error: parsed.error.flatten() });
+  }
+  if (process.env.MONGODB_URI) {
+    try {
+      await Lead.create({ type: "contact", ...parsed.data });
     } catch (e) {
       console.error(e);
       return res.status(500).json({ error: "Could not save lead" });
