@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { Resend } from "resend";
 
 /** Prefer env; in local `next dev`, default to the Express API if unset (see `.env.development`). */
 function resolveBackendUrl(): string | undefined {
@@ -42,6 +43,7 @@ function escapeHtml(s: string): string {
 }
 
 async function sendViaResend(body: ContactBody): Promise<boolean> {
+  // Replace re_xxxxxxxxx with your real key: set RESEND_API_KEY in .env.local or Cloudflare Worker secrets.
   const key = process.env.RESEND_API_KEY?.trim();
   if (!key) return false;
 
@@ -63,24 +65,17 @@ async function sendViaResend(body: ContactBody): Promise<boolean> {
     <p style="font-family:sans-serif;font-size:14px;line-height:1.5;white-space:pre-wrap;">${escapeHtml(message)}</p>
   `;
 
-  const res = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${key}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      from,
-      to: [to],
-      reply_to: email,
-      subject: `[FitStudio Ops] Contact from ${name}`,
-      html,
-    }),
+  const resend = new Resend(key);
+  const { error } = await resend.emails.send({
+    from,
+    to,
+    replyTo: email,
+    subject: `[FitStudio Ops] Contact from ${name}`,
+    html,
   });
 
-  if (!res.ok) {
-    const text = await res.text();
-    console.error("Resend error", res.status, text);
+  if (error) {
+    console.error("Resend error", error);
     return false;
   }
   return true;
