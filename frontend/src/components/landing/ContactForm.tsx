@@ -24,6 +24,7 @@ function validate(name: string, email: string, phone: string, message: string): 
 export function ContactForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errors, setErrors] = useState<FieldErrors>({});
+  const [serverError, setServerError] = useState<string | null>(null);
 
   async function onSubmit(ev: React.FormEvent<HTMLFormElement>) {
     ev.preventDefault();
@@ -39,6 +40,7 @@ export function ContactForm() {
     if (Object.keys(nextErrors).length > 0) return;
 
     setStatus("loading");
+    setServerError(null);
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
@@ -50,11 +52,17 @@ export function ContactForm() {
           message: message.trim(),
         }),
       });
-      if (!res.ok) throw new Error("failed");
+      const data = (await res.json().catch(() => ({}))) as { error?: string; ok?: boolean };
+      if (!res.ok) {
+        setServerError(typeof data.error === "string" ? data.error : "Something went wrong.");
+        setStatus("error");
+        return;
+      }
       setStatus("success");
       form.reset();
       setErrors({});
     } catch {
+      setServerError("Network error. Check your connection and try again.");
       setStatus("error");
     }
   }
@@ -143,7 +151,10 @@ export function ContactForm() {
         {errors.message ? <p className="mt-1 text-sm text-red-600">{errors.message}</p> : null}
       </div>
       {status === "error" ? (
-        <p className="text-sm text-red-600">Something went wrong. Please try again or email us directly.</p>
+        <p className="text-sm text-red-600">
+          {serverError ??
+            "Something went wrong. Please try again or use WhatsApp / email from this page."}
+        </p>
       ) : null}
       <button
         type="submit"

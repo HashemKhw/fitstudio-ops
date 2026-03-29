@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { z } from "zod";
+import { sendContactFormEmail } from "../lib/mail.js";
 import { Lead } from "../models/Lead.js";
 
 export const leadsRouter = Router();
@@ -61,12 +62,23 @@ leadsRouter.post("/contact", async (req, res) => {
   if (!parsed.success) {
     return res.status(400).json({ error: parsed.error.flatten() });
   }
+
+  const mail = await sendContactFormEmail(parsed.data);
+  if (!mail.ok) {
+    if (mail.reason === "not_configured") {
+      return res.status(503).json({
+        error:
+          "Email is not configured on the server. Set SMTP_USER and SMTP_PASS (see backend .env.example).",
+      });
+    }
+    return res.status(500).json({ error: "Could not send your message. Please try again later." });
+  }
+
   if (process.env.MONGODB_URI) {
     try {
       await Lead.create({ type: "contact", ...parsed.data });
     } catch (e) {
       console.error(e);
-      return res.status(500).json({ error: "Could not save lead" });
     }
   }
   return res.json({ ok: true });
