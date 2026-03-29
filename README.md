@@ -20,7 +20,7 @@ Monorepo scaffold: **Next.js + Tailwind** marketing site and **Express + MongoDB
 
 | Section | Headline / CTA |
 |---------|----------------|
-| **Hero** | *Run your gym without the spreadsheet chaos* — CTAs: **Contact Us**, **Book a Demo**, **WhatsApp** |
+| **Hero** | *Run your gym without the spreadsheet chaos* — CTA: **Contact Us** (WhatsApp lives in the contact section) |
 | **Problem → solution** | *Sound familiar?* — pain vs. how FitStudio Ops fixes it |
 | **Features** | *Everything you need to operate* — six benefit cards |
 | **Product preview** | *Your command center, on any device* — dashboard mock |

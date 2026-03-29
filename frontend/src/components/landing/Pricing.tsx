@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
-import { CONTACT_FORM_ANCHOR_ID, CONTACT_SECTION_ID } from "@/lib/cta";
+import { CONTACT_SECTION_ID } from "@/lib/cta";
 
 const tiers = [
   {
@@ -47,7 +47,7 @@ const tiers = [
       "SLA & priority support",
       "Custom reporting",
     ],
-    cta: "Book a Demo",
+    cta: "Contact Us",
     highlighted: false,
   },
 ];
@@ -96,11 +96,7 @@ export function Pricing() {
                 ))}
               </ul>
               <div className="mt-8">
-                <Button
-                  href={tier.cta === "Book a Demo" ? `#${CONTACT_FORM_ANCHOR_ID}` : `#${CONTACT_SECTION_ID}`}
-                  variant={tier.highlighted ? "primary" : "secondary"}
-                  className="w-full"
-                >
+                <Button href={`#${CONTACT_SECTION_ID}`} variant={tier.highlighted ? "primary" : "secondary"} className="w-full">
                   {tier.cta}
                 </Button>
               </div>

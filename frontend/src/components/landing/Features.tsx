@@ -62,12 +62,9 @@ export function Features() {
             </li>
           ))}
         </ul>
-        <div className="mx-auto mt-16 max-w-3xl rounded-2xl border border-zinc-200 bg-gradient-to-b from-brand-50/80 to-white px-6 py-10 text-center shadow-sm sm:px-10 sm:py-12">
-          <p className="text-lg font-semibold text-zinc-900">Ready to simplify your operations?</p>
-          <p className="mt-2 text-sm text-zinc-600">
-            Contact us for pricing, a product tour, or a quick chat on WhatsApp—we read every message.
-          </p>
-          <div className="mt-8">
+        <div className="mx-auto mt-16 max-w-2xl rounded-2xl border border-zinc-200 bg-gradient-to-b from-brand-50/80 to-white px-6 py-10 text-center shadow-sm sm:px-10 sm:py-12">
+          <p className="text-lg font-semibold text-zinc-900">Questions? We&apos;re here to help.</p>
+          <div className="mt-6">
             <CtaButtonGroup />
           </div>
         </div>

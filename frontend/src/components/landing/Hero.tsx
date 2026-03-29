@@ -1,10 +1,7 @@
 import { Container } from "@/components/ui/Container";
 import { CtaButtonGroup } from "@/components/landing/CtaButtonGroup";
-import { getContactMailtoUrl } from "@/lib/cta";
 
 export function Hero() {
-  const mailto = getContactMailtoUrl();
-
   return (
     <section className="relative overflow-hidden border-b border-zinc-200 bg-white pt-12 pb-20 sm:pt-16 sm:pb-28">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,oklch(0.93_0.06_250),transparent)]" />
@@ -24,13 +21,6 @@ export function Hero() {
           <div className="mt-10">
             <CtaButtonGroup />
           </div>
-          <p className="mt-6 text-sm text-zinc-500">
-            Prefer email?{" "}
-            <a href={mailto} className="font-medium text-brand-600 underline decoration-brand-300 underline-offset-2 hover:text-brand-700">
-              Send us a note
-            </a>
-            .
-          </p>
         </div>
       </Container>
     </section>
