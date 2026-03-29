@@ -77,16 +77,16 @@ body {
   overflow-x: hidden;
 }
 
-/* Anchor scroll under sticky header (mobile + desktop) */
+/* Anchor scroll under sticky header (taller below lg: top row + scroll link strip) */
 main section[id],
 #contact {
-  scroll-margin-top: 5.5rem;
+  scroll-margin-top: 7.75rem;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 1024px) {
   main section[id],
   #contact {
-    scroll-margin-top: 6rem;
+    scroll-margin-top: 5.75rem;
   }
 }
 
