@@ -73,7 +73,7 @@ html {
 }
 
 body {
-  @apply bg-zinc-50 text-zinc-900 antialiased;
+  @apply bg-slate-950 text-slate-100 antialiased;
   overflow-x: hidden;
 }
 

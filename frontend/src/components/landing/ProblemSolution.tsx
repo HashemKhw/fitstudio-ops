@@ -33,42 +33,46 @@ const solutions = [
 
 export function ProblemSolution() {
   return (
-    <Section id="problem" className="bg-zinc-50">
+    <Section id="problem" className="bg-slate-950">
       <Container>
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-2xl font-bold tracking-tight text-zinc-900 sm:text-4xl">
+          <h2 className="text-2xl font-bold tracking-tight text-slate-50 sm:text-4xl">
             Sound familiar? You are not alone.
           </h2>
-          <p className="mt-3 text-base leading-relaxed text-zinc-600 sm:mt-4 sm:text-lg">
+          <p className="mt-3 text-base leading-relaxed text-slate-400 sm:mt-4 sm:text-lg">
             Gym owners wear every hat. We built FitStudio Ops so operations stop eating your day—and your
             margins.
           </p>
         </div>
         <div className="mt-10 grid gap-8 sm:mt-14 lg:grid-cols-2 lg:gap-12">
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-zinc-500">Common pain</h3>
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-500">
+              Common pain
+            </h3>
             <ul className="mt-6 space-y-6">
               {problems.map((item) => (
                 <li
                   key={item.title}
-                  className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm transition-all duration-500 ease-out hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md sm:p-6"
+                  className="rounded-2xl border border-slate-800 bg-slate-900/80 p-5 shadow-sm transition-all duration-500 ease-out hover:-translate-y-0.5 hover:border-slate-600 hover:shadow-md sm:p-6"
                 >
-                  <p className="font-semibold text-zinc-900">{item.title}</p>
-                  <p className="mt-2 text-zinc-600">{item.body}</p>
+                  <p className="font-semibold text-slate-50">{item.title}</p>
+                  <p className="mt-2 text-slate-400">{item.body}</p>
                 </li>
               ))}
             </ul>
           </div>
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-brand-600">How we fix it</h3>
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-indigo-400">
+              How we fix it
+            </h3>
             <ul className="mt-6 space-y-6">
               {solutions.map((item) => (
                 <li
                   key={item.title}
-                  className="rounded-2xl border border-brand-100 bg-white p-5 shadow-sm ring-1 ring-brand-50 transition-all duration-500 ease-out hover:-translate-y-0.5 hover:shadow-md hover:ring-brand-100 sm:p-6"
+                  className="rounded-2xl border border-indigo-500/40 bg-slate-900/80 p-5 shadow-sm ring-1 ring-indigo-500/20 transition-all duration-500 ease-out hover:-translate-y-0.5 hover:shadow-md hover:ring-indigo-400 sm:p-6"
                 >
-                  <p className="font-semibold text-zinc-900">{item.title}</p>
-                  <p className="mt-2 text-zinc-600">{item.body}</p>
+                  <p className="font-semibold text-slate-50">{item.title}</p>
+                  <p className="mt-2 text-slate-300">{item.body}</p>
                 </li>
               ))}
             </ul>
