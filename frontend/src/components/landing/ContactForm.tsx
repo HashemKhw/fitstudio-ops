@@ -71,16 +71,16 @@ export function ContactForm() {
     return (
       <div
         id={CONTACT_FORM_ANCHOR_ID}
-        className="scroll-mt-28 rounded-2xl border border-emerald-200 bg-emerald-50/90 px-6 py-10 text-center sm:px-8"
+        className="scroll-mt-28 rounded-2xl border border-[#ffd709]/60 bg-[#001717] px-6 py-10 text-center shadow-lg shadow-[#7D26CD]/40 sm:px-8"
       >
-        <p className="text-lg font-semibold text-emerald-900">Message sent</p>
-        <p className="mt-2 text-sm text-emerald-800">
+        <p className="text-lg font-semibold text-slate-50 uppercase tracking-wide">Message sent</p>
+        <p className="mt-2 text-sm text-[#9cfbfa]">
           Thanks for reaching out—we&apos;ll get back to you as soon as we can.
         </p>
         <button
           type="button"
           onClick={() => setStatus("idle")}
-          className="mt-6 text-sm font-semibold text-emerald-800 underline decoration-emerald-400 underline-offset-2 hover:text-emerald-950"
+          className="mt-6 text-sm font-semibold text-[#ffd709] underline decoration-[#ff7cba] underline-offset-4 hover:text-[#ff7cba]"
         >
           Send another message
         </button>
@@ -92,11 +92,11 @@ export function ContactForm() {
     <form
       id={CONTACT_FORM_ANCHOR_ID}
       onSubmit={onSubmit}
-      className="space-y-4 rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm transition-[box-shadow,border-color] duration-500 ease-out focus-within:border-brand-200/60 focus-within:shadow-md sm:space-y-5 sm:p-8"
+      className="space-y-4 rounded-2xl border border-[#cb98ff]/40 bg-[#001717] p-5 shadow-sm transition-[box-shadow,border-color] duration-500 ease-out focus-within:border-[#ffd709]/70 focus-within:shadow-xl focus-within:shadow-[#7D26CD]/60 sm:space-y-5 sm:p-8"
       noValidate
     >
       <div>
-        <label htmlFor="contact-name" className="block text-sm font-medium text-zinc-700">
+        <label htmlFor="contact-name" className="block text-sm font-medium text-slate-100">
           Name
         </label>
         <input
@@ -104,13 +104,13 @@ export function ContactForm() {
           name="name"
           type="text"
           autoComplete="name"
-          className="mt-1.5 w-full rounded-lg border border-zinc-200 bg-white px-3 py-3 text-base text-zinc-900 shadow-sm outline-none ring-zinc-200 placeholder:text-zinc-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20"
+          className="mt-1.5 w-full rounded-lg border border-[#2a3548] bg-[#001111] px-3 py-3 text-base text-slate-50 shadow-sm outline-none ring-[#2a3548] placeholder:text-slate-500 focus:border-[#cb98ff] focus:ring-2 focus:ring-[#cb98ff]/40"
           placeholder="Your name"
         />
         {errors.name ? <p className="mt-1 text-sm text-red-600">{errors.name}</p> : null}
       </div>
       <div>
-        <label htmlFor="contact-email" className="block text-sm font-medium text-zinc-700">
+        <label htmlFor="contact-email" className="block text-sm font-medium text-slate-100">
           Email
         </label>
         <input
@@ -118,13 +118,13 @@ export function ContactForm() {
           name="email"
           type="email"
           autoComplete="email"
-          className="mt-1.5 w-full rounded-lg border border-zinc-200 bg-white px-3 py-3 text-base text-zinc-900 shadow-sm outline-none ring-zinc-200 placeholder:text-zinc-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20"
+          className="mt-1.5 w-full rounded-lg border border-[#2a3548] bg-[#001111] px-3 py-3 text-base text-slate-50 shadow-sm outline-none ring-[#2a3548] placeholder:text-slate-500 focus:border-[#cb98ff] focus:ring-2 focus:ring-[#cb98ff]/40"
           placeholder="you@yourgym.com"
         />
         {errors.email ? <p className="mt-1 text-sm text-red-600">{errors.email}</p> : null}
       </div>
       <div>
-        <label htmlFor="contact-phone" className="block text-sm font-medium text-zinc-700">
+        <label htmlFor="contact-phone" className="block text-sm font-medium text-slate-100">
           Phone
         </label>
         <input
@@ -132,20 +132,20 @@ export function ContactForm() {
           name="phone"
           type="tel"
           autoComplete="tel"
-          className="mt-1.5 w-full rounded-lg border border-zinc-200 bg-white px-3 py-3 text-base text-zinc-900 shadow-sm outline-none ring-zinc-200 placeholder:text-zinc-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20"
+          className="mt-1.5 w-full rounded-lg border border-[#2a3548] bg-[#001111] px-3 py-3 text-base text-slate-50 shadow-sm outline-none ring-[#2a3548] placeholder:text-slate-500 focus:border-[#cb98ff] focus:ring-2 focus:ring-[#cb98ff]/40"
           placeholder="+1 (555) 000-0000"
         />
         {errors.phone ? <p className="mt-1 text-sm text-red-600">{errors.phone}</p> : null}
       </div>
       <div>
-        <label htmlFor="contact-message" className="block text-sm font-medium text-zinc-700">
+        <label htmlFor="contact-message" className="block text-sm font-medium text-slate-100">
           Message
         </label>
         <textarea
           id="contact-message"
           name="message"
           rows={4}
-          className="mt-1.5 w-full resize-y rounded-lg border border-zinc-200 bg-white px-3 py-3 text-base text-zinc-900 shadow-sm outline-none ring-zinc-200 placeholder:text-zinc-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20"
+          className="mt-1.5 w-full resize-y rounded-lg border border-[#2a3548] bg-[#001111] px-3 py-3 text-base text-slate-50 shadow-sm outline-none ring-[#2a3548] placeholder:text-slate-500 focus:border-[#cb98ff] focus:ring-2 focus:ring-[#cb98ff]/40"
           placeholder="Tell us about your gym or studio and what you’re looking for."
         />
         {errors.message ? <p className="mt-1 text-sm text-red-600">{errors.message}</p> : null}
@@ -159,7 +159,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={status === "loading"}
-        className="min-h-12 w-full touch-manipulation rounded-lg bg-brand-600 px-4 py-3 text-base font-semibold text-white shadow-sm transition-colors hover:bg-brand-700 disabled:opacity-60 sm:w-auto sm:min-w-[200px] sm:text-sm"
+        className="min-h-12 w-full touch-manipulation rounded-none border-2 border-[#ffd709] bg-[#7D26CD] px-4 py-3 text-base font-semibold text-white shadow-sm transition-colors hover:bg-[#ffd709] hover:text-[#001111] disabled:opacity-60 sm:w-auto sm:min-w-[200px] sm:text-sm uppercase tracking-[0.2em]"
       >
         {status === "loading" ? "Sending…" : "Send Message"}
       </button>

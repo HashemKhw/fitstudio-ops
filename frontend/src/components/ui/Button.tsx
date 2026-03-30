@@ -5,11 +5,11 @@ type ButtonVariant = "primary" | "secondary" | "ghost";
 
 const variants: Record<ButtonVariant, string> = {
   primary:
-    "bg-brand-600 text-white shadow-md shadow-brand-600/20 hover:-translate-y-0.5 hover:bg-brand-700 hover:shadow-lg hover:shadow-brand-600/25 active:translate-y-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600",
+    "bg-[#7D26CD] text-white shadow-md shadow-[#7D26CD]/40 hover:-translate-y-0.5 hover:bg-[#ffd709] hover:text-[#001111] hover:shadow-lg hover:shadow-[#ff7cba]/60 active:translate-y-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ffd709]",
   secondary:
-    "bg-white text-zinc-900 shadow-sm ring-1 ring-inset ring-zinc-200 hover:-translate-y-0.5 hover:bg-zinc-50 hover:shadow-md active:translate-y-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-400",
+    "bg-[#001111] text-[#cb98ff] shadow-sm ring-1 ring-inset ring-[#2a3548] hover:-translate-y-0.5 hover:bg-[#001e1e] hover:text-[#ffd709] hover:shadow-md active:translate-y-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#cb98ff]",
   ghost:
-    "text-zinc-700 hover:bg-zinc-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-400",
+    "text-[#ffd709] hover:bg-[#001717] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ffd709]",
 };
 
 type ButtonProps = {

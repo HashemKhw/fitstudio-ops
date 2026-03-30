@@ -33,13 +33,13 @@ const solutions = [
 
 export function ProblemSolution() {
   return (
-    <Section id="problem" className="bg-slate-950">
+    <Section id="problem" className="bg-[#001111]">
       <Container>
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-2xl font-bold tracking-tight text-slate-50 sm:text-4xl">
+          <h2 className="text-2xl font-bold tracking-tight text-slate-50 sm:text-4xl uppercase italic skew-x-[-5deg]">
             Sound familiar? You are not alone.
           </h2>
-          <p className="mt-3 text-base leading-relaxed text-slate-400 sm:mt-4 sm:text-lg">
+          <p className="mt-3 text-base leading-relaxed text-[#9cfbfa] sm:mt-4 sm:text-lg">
             Gym owners wear every hat. We built FitStudio Ops so operations stop eating your day—and your
             margins.
           </p>

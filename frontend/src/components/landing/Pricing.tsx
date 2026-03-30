@@ -54,13 +54,13 @@ const tiers = [
 
 export function Pricing() {
   return (
-    <Section id="pricing" className="bg-slate-950">
+    <Section id="pricing" className="bg-[#001111]">
       <Container>
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-2xl font-bold tracking-tight text-slate-50 sm:text-4xl">
+          <h2 className="text-2xl font-bold tracking-tight text-slate-50 sm:text-4xl uppercase italic skew-x-[-5deg]">
             Simple pricing that scales with you
           </h2>
-          <p className="mt-3 text-base leading-relaxed text-slate-400 sm:mt-4 sm:text-lg">
+          <p className="mt-3 text-base leading-relaxed text-[#9cfbfa] sm:mt-4 sm:text-lg">
             Get a tailored quote for your gym or studio—reach out and we&apos;ll walk you through the right plan.
           </p>
         </div>
@@ -70,12 +70,12 @@ export function Pricing() {
               key={tier.name}
               className={`relative flex flex-col rounded-2xl border p-5 shadow-sm transition-all duration-500 ease-out hover:-translate-y-0.5 hover:shadow-lg sm:p-8 ${
                 tier.highlighted
-                  ? "border-indigo-500 bg-slate-900 ring-2 ring-indigo-400 hover:shadow-indigo-500/20"
-                  : "border-slate-800 bg-slate-900/80 hover:border-slate-600"
+                  ? "border-[#ffd709] bg-[#001717] ring-2 ring-[#ffd709]/80 hover:shadow-[0_25px_60px_rgba(125,38,205,0.8)]"
+                  : "border-[#2a3548] bg-[#001717] hover:border-[#cb98ff]"
               }`}
             >
               {tier.highlighted && (
-                <span className="absolute -top-2.5 left-1/2 max-w-[calc(100%-2rem)] -translate-x-1/2 truncate rounded-full bg-indigo-500 px-2.5 py-0.5 text-[11px] font-semibold text-white sm:-top-3 sm:px-3 sm:text-xs">
+                <span className="absolute -top-2.5 left-1/2 max-w-[calc(100%-2rem)] -translate-x-1/2 truncate rounded-none bg-[#ffd709] px-2.5 py-0.5 text-[11px] font-black text-[#001111] sm:-top-3 sm:px-3 sm:text-xs uppercase tracking-[0.2em]">
                   Most popular
                 </span>
               )}
